@@ -80,9 +80,7 @@ authRouter.post(
 );
 
 authRouter.get('/signout', signout);
-
 authRouter.get('/current-user', requireSignin, currentUser);
-
 authRouter.get('/current-admin', requireSignin, currentUser);
 authRouter.get('/current-author', requireSignin, currentUser);
 authRouter.get('/current-subscriber', requireSignin, currentUser);
