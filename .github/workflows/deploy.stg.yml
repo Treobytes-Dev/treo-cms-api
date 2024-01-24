@@ -31,7 +31,7 @@ jobs:
         with:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          aws-region: us-east-1 # Set your AWS region
+          aws-region: us-west-2 # Set your AWS region
 
       - name: Deploy to S3
         run: aws s3 sync ./out s3://your-bucket-name --delete
