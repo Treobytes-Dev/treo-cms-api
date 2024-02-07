@@ -3,7 +3,7 @@ name: Deploy to AWS API Gateway
 on:
   push:
     branches:
-      - stg # Set your deployment branch
+      - main # Set your deployment branch
 
 jobs:
   deploy:
