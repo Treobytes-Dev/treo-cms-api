@@ -1,0 +1,35 @@
+name: Deploy to AWS API Gateway
+
+on:
+  push:
+    branches:
+      - main # Set your deployment branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Setup AWS credentials
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{env.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{env.AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-west-2
+
+      # Install AWS CLI
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+
+      # Deploy to AWS API Gateway
+      - name: Deploy to AWS API Gateway
+        run: |
+          # Add your deployment commands here
+          # This might involve using AWS CLI commands or running a script that handles the deployment
